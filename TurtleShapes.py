@@ -10,23 +10,38 @@ import turtle as tr
 # control boarder thinkness
 # FUNCTIONS:
 # user_interface, draw, get_sides, get_size, get_location, get_color, get_b_color, get thickness
+# turtle screen inside extra tkinter screen? Part of user_interface?
 #############################################################
 
 
 
+def draw(sides, x, y, size, fill, border, thickness):
+    '''Set to draw the shape given based on a number of sides.'''
+
+    if sides < 2:
+        tr.forward(size)
+    elif sides == 2:
+        tr.left(90)
+        tr.forward(size/2)
+        tr.right(90)
+        tr.forward(size/2)
+    elif sides == 3:
+        pass
+    
+    tr.mainloop()
+
+
 def user_interface():
     '''Get information from a user'''
-    n_sides = 1
+    n_sides = 2
+    size = 100
     location = (0,0)
     color = 'black'
     b_color = 'black'
     thickness = 1
 
-    
+    draw(n_sides, location[0], location[1], size, color, b_color, thickness)
 
-def draw():
-    '''Set to draw the shape given based on a keyword or number:
-    accepted keywords are: line, triangle, square, rectangle, pentagon, hexagon,
-    septagon, octogon, nonogon, decagon, dodecagon.  Any other shape or sides requires
-    a number to draw the sides.'''
 
+if __name__ == "__main__":
+    user_interface()
